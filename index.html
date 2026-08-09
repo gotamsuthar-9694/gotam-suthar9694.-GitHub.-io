@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gotam Ladwani — Intermediate Student | Aspiring IBA Karachi</title>
+<meta name="description" content="Gotam Ladwani, Intermediate (Pre-Medical/Pre-Engineering) student, son of Deepchand Suthar. Passionate about Mathematics and Physics, aiming for IBA Karachi.">
+<style>
+  :root{
+    --board: #1e2b26;
+    --board-dark: #16201c;
+    --chalk: #f3f1e7;
+    --chalk-dim: #cfd0c6;
+    --gold: #d3a13a;
+    --blue: #7fa3ad;
+    --rule: rgba(243,241,231,0.14);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  body{
+    background: var(--board);
+    color: var(--chalk);
+    font-family: 'IBM Plex Sans', -apple-system, Segoe UI, Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  @font-face{
+    font-family: 'FrauncesFallback';
+    src: local('Georgia');
+  }
+
+  /* subtle chalkboard grain */
+  body::before{
+    content:"";
+    position: fixed; inset:0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.025), transparent 45%);
+    pointer-events:none;
+    z-index: 0;
+  }
+
+  .formula-layer{
+    position: fixed;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+    pointer-events:none;
+  }
+  .formula-layer span{
+    position:absolute;
+    color: var(--chalk-dim);
+    opacity: 0.08;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    white-space: nowrap;
+    animation: drift 45s linear infinite;
+  }
+  @keyframes drift{
+    from{ transform: translateY(0); }
+    to{ transform: translateY(-120px); }
+  }
+
+  header, main, footer{ position: relative; z-index: 1; }
+
+  header{
+    min-height: 92vh;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:flex-start;
+    padding: 8vh 8vw;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+  }
+
+  h1{
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.6rem, 7vw, 5.4rem);
+    font-weight: 400;
+    line-height: 1.05;
+    max-width: 16ch;
+    position: relative;
+  }
+
+  h1 .underline{
+    position:relative;
+    display:inline-block;
+  }
+  h1 .underline::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-6px;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: chalkline 1.4s ease-out 0.6s forwards;
+  }
+  @keyframes chalkline{ to{ transform: scaleX(1); } }
+
+  .tagline{
+    margin-top: 1.8rem;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    color: var(--chalk-dim);
+    max-width: 46ch;
+  }
+
+  .meta-row{
+    margin-top: 3rem;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+  }
+  .meta-item{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+  }
+  .meta-item .label{
+    display:block;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.68rem;
+    margin-bottom: 0.35rem;
+  }
+
+  section{
+    padding: 8vh 8vw;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .section-label{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.6rem;
+  }
+
+  .section-title{
+    font-family: Georgia, serif;
+    font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+    max-width: 20ch;
+    margin-bottom: 2.2rem;
+    font-weight: 400;
+  }
+
+  .subjects{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.6rem;
+  }
+
+  .card{
+    border: 1px solid var(--rule);
+    padding: 2rem;
+    border-radius: 2px;
+    position: relative;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .card:hover{
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+  .card .glyph{
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 2.6rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display:block;
+  }
+  .card h3{
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+  .card p{
+    color: var(--chalk-dim);
+    font-size: 0.95rem;
+  }
+
+  .goal-block{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+  .goal-text{ flex: 1 1 340px; }
+  .goal-text p{ color: var(--chalk-dim); max-width: 52ch; margin-bottom: 1rem; }
+
+  .goal-figure{
+    flex: 1 1 260px;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.6rem;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .goal-figure .big{
+    font-family: Georgia, serif;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    color: var(--gold);
+    line-height:1;
+  }
+  .goal-figure .small{
+    margin-top: 0.6rem;
+    color: var(--chalk-dim);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+
+  .family-line{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--chalk-dim);
+    line-height: 2;
+  }
+  .family-line strong{ color: var(--chalk); font-weight: 500; }
+
+  footer{
+    padding: 5vh 8vw;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--chalk-dim);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    * { animation: none !important; transition: none !important; }
+  }
+
+  @media (max-width: 640px){
+    header, section, footer{ padding-left: 6vw; padding-right: 6vw; }
+  }
+</style>
+</head>
+<body>
+
+<div class="formula-layer" id="formulaLayer" aria-hidden="true"></div>
+
+<header>
+  <div class="eyebrow">Student Profile</div>
+  <h1><span class="underline">Gotam Ladwani</span></h1>
+  <p class="tagline">Intermediate student building a foundation in Mathematics and Physics, working toward admission at IBA Karachi.</p>
+
+  <div class="meta-row">
+    <div class="meta-item"><span class="label">Class</span>Intermediate</div>
+    <div class="meta-item"><span class="label">Goal</span>IBA Karachi</div>
+    <div class="meta-item"><span class="label">Focus</span>Maths &amp; Physics</div>
+  </div>
+</header>
+
+<main>
+  <section id="about">
+    <div class="section-label">01 — About</div>
+    <div class="section-title">Family &amp; background</div>
+    <p class="family-line">
+      Full name: <strong>Gotam Ladwani</strong><br>
+      Father's name: <strong>Deepchand</strong><br>
+      Surname: <strong>Suthar</strong><br>
+      Currently enrolled in: <strong>Intermediate (Class XI–XII)</strong>
+    </p>
+  </section>
+
+  <section id="interests">
+    <div class="section-label">02 — Interests</div>
+    <div class="section-title">Where the curiosity goes</div>
+    <div class="subjects">
+      <div class="card">
+        <span class="glyph">∑</span>
+        <h3>Mathematics</h3>
+        <p>Drawn to problem-solving, algebra, and the logical structure behind every equation.</p>
+      </div>
+      <div class="card">
+        <span class="glyph">Δ</span>
+        <h3>Physics</h3>
+        <p>Fascinated by how the physical world follows precise, discoverable laws — from motion to energy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="goal">
+    <div class="section-label">03 — Goal</div>
+    <div class="section-title">Aiming for IBA Karachi</div>
+    <div class="goal-block">
+      <div class="goal-text">
+        <p>The Institute of Business Administration (IBA) Karachi is the target destination after Intermediate — a step toward a strong, analytical career built on the same discipline found in maths and physics.</p>
+        <p>Steady, focused preparation now is the groundwork for that goal.</p>
+      </div>
+      <div class="goal-figure">
+        <div class="big">IBA</div>
+        <div class="small">KARACHI — TARGET INSTITUTION</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>Gotam Ladwani · S/O Deepchand · Suthar</span>
+  <span>Built with HTML, CSS &amp; JavaScript</span>
+</footer>
+
+<script>
+  // Scatter a few faint formula fragments in the background for atmosphere
+  const formulas = ["E = mc²", "F = ma", "a² + b² = c²", "v = u + at", "∫f(x)dx", "PV = nRT", "x = -b ± √(b²-4ac) / 2a"];
+  const layer = document.getElementById('formulaLayer');
+  formulas.forEach((f, i) => {
+    const el = document.createElement('span');
+    el.textContent = f;
+    el.style.left = (Math.random() * 90) + "%";
+    el.style.top = (110 + Math.random() * 20) + "%";
+    el.style.fontSize = (1.2 + Math.random() * 1.6) + "rem";
+    el.style.animationDuration = (30 + Math.random() * 30) + "s";
+    el.style.animationDelay = (i * 3) + "s";
+    layer.appendChild(el);
+  });
+</script>
+
+</body>
+</html>
